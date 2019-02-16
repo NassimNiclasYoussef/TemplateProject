@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">View Manager</string>
+    <array name="material_item">
+        <item>...</item>
+        <item>Pole A1</item>
+        <item>Pole A2</item>
+        <item>Pole H</item>
+        <item>Pole M1</item>
+        <item>Pole M2</item>
+        <item>Pole M3</item>
+        <item>Pole others</item>
+        <item>Bundeled 3x50</item>
+        <item>Bundeled 3x70</item>
+        <item>Bundeled 3x150</item>
+        <item>NYA</item>
+        <item>NYCY</item>
+        <item>NYY</item>
+        <item>Connecteur bran</item>
+        <item>Connecteur tor</item>
+        <item>Pince Ancrage</item>
+        <item>Pince Allignement</item>
+        <item>Chaine</item>
+        <item>نحاس</item>
+        <item>نزع نحاس</item>
+        <item>Almelec 54</item>
+        <item>Almelec 94</item>
+        <item>Almelec 116</item>
+        <item>Almelec 148</item>
+        <item>نزع Almelec</item>
+        <item>sectionneur</item>
+        <item>cut-out</item>
+        <item>parafoudre</item>
+        <item>نزع اعمدة</item>
+        <item>نقل كابلات شعب</item>
+    </array>
+</resources>

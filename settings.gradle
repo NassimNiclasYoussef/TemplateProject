@@ -1,0 +1,8 @@
+include ':app',
+        ':Data Source',
+        ':View Manager',
+        ':View Components',
+        ':Data View Binder',
+        ':Utilities',
+        ':Local Data Source Module',
+        ':Life Cycle Manager'
