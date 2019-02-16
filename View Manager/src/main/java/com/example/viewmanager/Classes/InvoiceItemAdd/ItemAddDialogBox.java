@@ -11,7 +11,6 @@ import com.example.viewmanager.R;
 
  class ItemAddDialogBox extends Dialog {
     Spinner spinner;
-    ArrayAdapter<String> dataAdapter;
 
      ItemAddDialogBox(@NonNull Context context) {
         super(context);
