@@ -13,7 +13,7 @@ import com.example.viewmanager.R;
     Spinner spinner;
     ArrayAdapter<String> dataAdapter;
 
-     ItemAddDialogBox(@NonNull Context context) {
+        ItemAddDialogBox(@NonNull Context context) {
         super(context);
         setContentView(R.layout.invoice_item_add_dialog);
         spinner = findViewById(R.id.spinner);
