@@ -1,6 +1,6 @@
 package com.example.localdatasourcemodule.ServiceLocator;
 
-import com.example.localdatasourcemodule.EmailService;
+import com.example.localdatasourcemodule.FirebaseFunctions.EmailService;
 import com.example.localdatasourcemodule.Service;
 
 public class FirebaseFunctionServiceLocator {
