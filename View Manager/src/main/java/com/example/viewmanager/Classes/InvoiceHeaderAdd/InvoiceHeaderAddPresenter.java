@@ -13,7 +13,6 @@ class InvoiceHeaderAddPresenter {
     void insertHeaderToLocalDatabase(View v) {
         InvoiceHeader invoiceHeader = new InvoiceHeader();
         ViewUtility.View2ToData(v, invoiceHeader);
-
         
         DataSource.getInstance()
                 .getDatabaseLocalDatabaseServiceLocator()
