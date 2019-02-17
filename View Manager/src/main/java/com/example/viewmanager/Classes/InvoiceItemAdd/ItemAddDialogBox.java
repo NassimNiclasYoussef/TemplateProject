@@ -13,9 +13,9 @@ import com.example.utilitiesmodule.ViewUtility;
 import com.example.viewmanager.R;
 
 class ItemAddDialogBox extends Dialog implements AdapterView.OnItemSelectedListener, View.OnClickListener {
-    Spinner spinner;
-    InvoiceAddDialog invoiceAddDialog;
-    InvoiceItem invoiceItem = new InvoiceItem();
+    private Spinner spinner;
+    private InvoiceAddDialog invoiceAddDialog;
+    private InvoiceItem invoiceItem = new InvoiceItem();
 
     ItemAddDialogBox(@NonNull Context context) {
         super(context);
@@ -27,7 +27,7 @@ class ItemAddDialogBox extends Dialog implements AdapterView.OnItemSelectedListe
 
     }
 
-    public void setInvoiceAddDialog(InvoiceAddDialog invoiceAddDialog) {
+    void setInvoiceAddDialog(InvoiceAddDialog invoiceAddDialog) {
         this.invoiceAddDialog = invoiceAddDialog;
     }
 
@@ -41,7 +41,7 @@ class ItemAddDialogBox extends Dialog implements AdapterView.OnItemSelectedListe
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+        invoiceItem.material = (String) spinner.getItemAtPosition(position);
     }
 
     @Override

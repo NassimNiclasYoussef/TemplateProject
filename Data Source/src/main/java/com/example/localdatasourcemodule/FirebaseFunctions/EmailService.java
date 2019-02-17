@@ -22,12 +22,9 @@ public class EmailService {
         FirebaseFunctions.getInstance()
                 .getHttpsCallable("sendWelcomeEmail")
                 .call(data)
-                .continueWith(new Continuation<HttpsCallableResult, String>() {
-                    @Override
-                    public String then(@NonNull Task<HttpsCallableResult> task) throws Exception {
-                        Log.e("sendWelcomeEmail", task.getResult().getData().toString());
-                        return (String) task.getResult().getData();
-                    }
+                .continueWith(task -> {
+                    Log.e("sendWelcomeEmail", task.getResult().getData().toString());
+                    return (String) task.getResult().getData();
                 });
     }
 

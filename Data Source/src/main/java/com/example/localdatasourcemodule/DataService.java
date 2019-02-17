@@ -58,7 +58,7 @@ public class DataService {
 
     public void initFirebaseFunctionLocator() {
         firebaseFunctionServiceLocator = new FirebaseFunctionServiceLocator();
-        Class databaseServiceLocatorClass = LocalDatabaseServiceLocator.class;
+        Class databaseServiceLocatorClass = FirebaseFunctionServiceLocator.class;
         Field[] fields = databaseServiceLocatorClass.getDeclaredFields();
         for (Field field : fields) {
             if (field.isAnnotationPresent(Service.class)) {
@@ -87,5 +87,9 @@ public class DataService {
 
     public LocalDatabaseServiceLocator getDatabaseLocalDatabaseServiceLocator() {
         return localDatabaseServiceLocator;
+    }
+
+    public FirebaseFunctionServiceLocator getFirebaseFunctionServiceLocator() {
+        return firebaseFunctionServiceLocator;
     }
 }

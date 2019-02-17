@@ -1,6 +1,7 @@
 package com.example.viewmanager.Classes.InvoiceItemAdd;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
 
@@ -41,11 +42,13 @@ public class InvoiceItemAddView extends RelativeLayout implements InvoiceAddDial
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         if (menuItem.getItemId() == R.id.add)
             new ItemAddDialogBox(getContext()).setInvoiceAddDialog(this);
+        else
+            invoiceItemAddPresenter.sendEmail();
         return false;
     }
 
     @Override
     public void onAddButtonClicked(InvoiceItem invoiceItem) {
-
+        invoiceItemAddPresenter.insertItemInDatabase(invoiceItem);
     }
 }
