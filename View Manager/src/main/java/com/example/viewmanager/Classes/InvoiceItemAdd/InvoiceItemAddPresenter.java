@@ -22,7 +22,8 @@ class InvoiceItemAddPresenter {
     }
 
     void sendEmail(Context context) {
-        Toast.makeText(context, "Sending", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Sending" +
+                "", Toast.LENGTH_SHORT).show();
         DataService.getInstance()
                 .getFirebaseFunctionServiceLocator()
                 .getEmailService()
