@@ -1,18 +1,18 @@
 package com.example.viewmanager.Classes.InvoiceHeaderAdd;
 
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.localdatasourcemodule.DataSource;
 import com.example.localdatasourcemodule.LocalDatabase.Entity.InvoiceHeader;
 import com.example.utilitiesmodule.ViewUtility;
+import com.example.viewmanager.Managers.ViewNavigatorManager;
+
+import static com.example.viewmanager.Managers.ViewConstants.INVOICE_ITEM_ADD;
 
 class InvoiceHeaderAddPresenter {
-    InvoiceHeaderAddPresenter() {
-    }
 
-    void insertHeaderToLocalDatabase(View v) {
-        InvoiceHeader invoiceHeader = new InvoiceHeader();
-        ViewUtility.View2ToData(v, invoiceHeader);
+    void insertHeaderToLocalDatabase(InvoiceHeader invoiceHeader) {
 
         DataSource.getInstance()
                 .getDatabaseLocalDatabaseServiceLocator()
@@ -22,5 +22,7 @@ class InvoiceHeaderAddPresenter {
                 .getDatabaseLocalDatabaseServiceLocator()
                 .getInvoiceHeaderService()
                 .insertInvoiceHeader(invoiceHeader);
+
+        ViewNavigatorManager.getInstance().goTo(INVOICE_ITEM_ADD);
     }
 }

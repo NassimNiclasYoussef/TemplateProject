@@ -1,16 +1,14 @@
 package com.example.viewmanager.Classes.InvoiceHeaderAdd;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
 import com.example.lifecyclemanagermodule.LifeCycleManager;
+import com.example.localdatasourcemodule.LocalDatabase.Entity.InvoiceHeader;
+import com.example.utilitiesmodule.ViewUtility;
 import com.example.viewmanager.Managers.ViewNavigatorManager;
 import com.example.viewmanager.R;
-
-import static com.example.viewmanager.Managers.ViewConstants.INVOICE_ITEM_ADD;
 
 public class InvoiceHeaderAddView extends ScrollView implements InvoiceHeaderAdd, View.OnClickListener {
     InvoiceHeaderAddPresenter invoiceHeaderAddPresenter = new InvoiceHeaderAddPresenter();
@@ -36,8 +34,11 @@ public class InvoiceHeaderAddView extends ScrollView implements InvoiceHeaderAdd
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.next) {
-            invoiceHeaderAddPresenter.insertHeaderToLocalDatabase(this);
-            ViewNavigatorManager.getInstance().goTo(INVOICE_ITEM_ADD);
+            InvoiceHeader invoiceHeader = new InvoiceHeader();
+            if (!ViewUtility.getEmptyFields(this, invoiceHeader)) {
+                ViewUtility.View2ToData(this, invoiceHeader);
+                invoiceHeaderAddPresenter.insertHeaderToLocalDatabase(invoiceHeader);
+            }
         } else
             ViewNavigatorManager.getInstance().goBack();
     }
