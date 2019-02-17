@@ -43,7 +43,7 @@ public class InvoiceItemAddView extends RelativeLayout implements InvoiceAddDial
         if (menuItem.getItemId() == R.id.add)
             new ItemAddDialogBox(getContext()).setInvoiceAddDialog(this);
         else
-            invoiceItemAddPresenter.sendEmail();
+            invoiceItemAddPresenter.sendEmail(getContext());
         return false;
     }
 
