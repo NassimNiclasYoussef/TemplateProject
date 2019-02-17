@@ -1,11 +1,7 @@
 package com.example.viewmanager.Classes.InvoiceHeaderAdd;
 
-import android.view.View;
-import android.widget.Toast;
-
 import com.example.localdatasourcemodule.DataSource;
 import com.example.localdatasourcemodule.LocalDatabase.Entity.InvoiceHeader;
-import com.example.utilitiesmodule.ViewUtility;
 import com.example.viewmanager.Managers.ViewNavigatorManager;
 
 import static com.example.viewmanager.Managers.ViewConstants.INVOICE_ITEM_ADD;

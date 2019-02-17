@@ -7,12 +7,13 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 
 import com.example.lifecyclemanagermodule.LifeCycleManager;
+import com.example.localdatasourcemodule.LocalDatabase.Entity.InvoiceItem;
 import com.example.viewmanager.Classes.InvoiceHeaderAdd.InvoiceHeaderAdd;
 import com.example.viewmanager.Managers.ViewNavigatorManager;
 import com.example.viewmanager.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class InvoiceItemAddView extends RelativeLayout implements InvoiceHeaderAdd, BottomNavigationView.OnNavigationItemSelectedListener {
+public class InvoiceItemAddView extends RelativeLayout implements InvoiceAddDialog,InvoiceHeaderAdd, BottomNavigationView.OnNavigationItemSelectedListener {
     InvoiceItemAddPresenter invoiceItemAddPresenter;
 
     public InvoiceItemAddView(Context context) {
@@ -37,7 +38,12 @@ public class InvoiceItemAddView extends RelativeLayout implements InvoiceHeaderA
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         if (menuItem.getItemId() == R.id.add)
-            new ItemAddDialogBox(getContext()).show();
+            new ItemAddDialogBox(getContext()).setInvoiceAddDialog(this);
         return false;
+    }
+
+    @Override
+    public void onAddButtonClicked(InvoiceItem invoiceItem) {
+
     }
 }
