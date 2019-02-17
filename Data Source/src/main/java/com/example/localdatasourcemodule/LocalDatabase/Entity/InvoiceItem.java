@@ -25,4 +25,10 @@ public class InvoiceItem extends RealmObject {
 
     @ViewTag("notes")
     public String notes;
+
+    @Override
+    public String toString() {
+        return String.format("%s;%s;%s;%s;%s;%s;", material,offered,
+                offeredSubContractor, execution, returned, notes);
+    }
 }

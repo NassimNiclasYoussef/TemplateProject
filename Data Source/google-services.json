@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "158941655597",
+    "firebase_url": "https://bus-subcontractor-messaging.firebaseio.com",
+    "project_id": "bus-subcontractor-messaging",
+    "storage_bucket": "bus-subcontractor-messaging.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158941655597:android:6a4862b62f221075",
+        "android_client_info": {
+          "package_name": "com.example.localdatasourcemodule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158941655597-48dnqb49saucbs15n3esr8o07a898uns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4g2Ddr2op49DI0c-2KqPSRnVGwJimYD0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158941655597:android:1ebd5678b52f01e9",
+        "android_client_info": {
+          "package_name": "com.example.templateproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158941655597-48dnqb49saucbs15n3esr8o07a898uns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4g2Ddr2op49DI0c-2KqPSRnVGwJimYD0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

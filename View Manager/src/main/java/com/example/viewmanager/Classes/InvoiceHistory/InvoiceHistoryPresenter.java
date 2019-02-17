@@ -1,7 +1,7 @@
 package com.example.viewmanager.Classes.InvoiceHistory;
 
 import com.example.localdatasourcemodule.LocalDatabase.Entity.InvoiceHeader;
-import com.example.localdatasourcemodule.DataSource;
+import com.example.localdatasourcemodule.DataService;
 import com.example.viewcomponentsmodule.InvoiceHeaderItem;
 
 import org.apache.commons.collections4.CollectionUtils;
@@ -14,7 +14,7 @@ class InvoiceHistoryPresenter {
     AbstractList<InvoiceHeader> headers;
 
     void setHeadersItem(InvoiceHistoryView invoiceHistoryView) {
-        headers = DataSource.getInstance()
+        headers = DataService.getInstance()
                 .getDatabaseLocalDatabaseServiceLocator()
                 .getInvoiceHeaderService()
                 .getAllInvoiceHeader();

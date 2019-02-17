@@ -13,16 +13,16 @@ import java.lang.reflect.Modifier;
 
 import io.realm.Realm;
 
-public class DataSource {
-    private static final DataSource ourInstance = new DataSource();
+public class DataService {
+    private static final DataService ourInstance = new DataService();
     private LocalDatabaseServiceLocator localDatabaseServiceLocator;
     private FirebaseFunctionServiceLocator firebaseFunctionServiceLocator;
 
-    private DataSource() {
+    private DataService() {
 
     }
 
-    public static DataSource getInstance() {
+    public static DataService getInstance() {
         return ourInstance;
     }
 
@@ -43,6 +43,35 @@ public class DataSource {
                     fieldConstructor.setAccessible(true);
                     Object serviceInstance = fieldConstructor.newInstance();
                     field.set(localDatabaseServiceLocator, serviceInstance);
+                } catch (InvocationTargetException ignored) {
+                } catch (NoSuchMethodException e) {
+                    Log.e(field.getType().getName(), "No default constructor is detected.");
+                } catch (IllegalAccessException e) {
+                    Log.e(field.getType().getName(), e.getLocalizedMessage());
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+    }
+
+    public void initFirebaseFunctionLocator() {
+        firebaseFunctionServiceLocator = new FirebaseFunctionServiceLocator();
+        Class databaseServiceLocatorClass = LocalDatabaseServiceLocator.class;
+        Field[] fields = databaseServiceLocatorClass.getDeclaredFields();
+        for (Field field : fields) {
+            if (field.isAnnotationPresent(Service.class)) {
+                try {
+                    if (field.getModifiers() != Modifier.PRIVATE)
+                        throw new IllegalAccessException("Field should be Private");
+                    field.setAccessible(true);
+                    Constructor fieldConstructor = field.getType().getDeclaredConstructor();
+                    if (fieldConstructor.getModifiers() != Modifier.PRIVATE)
+                        throw new IllegalAccessException("Constructor should be Private");
+                    fieldConstructor.setAccessible(true);
+                    Object serviceInstance = fieldConstructor.newInstance();
+                    field.set(firebaseFunctionServiceLocator, serviceInstance);
                 } catch (InvocationTargetException ignored) {
                 } catch (NoSuchMethodException e) {
                     Log.e(field.getType().getName(), "No default constructor is detected.");

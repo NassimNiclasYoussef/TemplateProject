@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lifecyclemanagermodule.LifeCycleAnnotationNames;
 import com.example.lifecyclemanagermodule.LifeCycleManager;
-import com.example.localdatasourcemodule.DataSource;
+import com.example.localdatasourcemodule.DataService;
 import com.example.viewmanager.Managers.ViewManager;
 
 import java.lang.reflect.InvocationTargetException;
@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DataSource.getInstance().initDatabaseLocator(this);
+        DataService.getInstance().initDatabaseLocator(this);
+        DataService.getInstance().initFirebaseFunctionLocator();
         new ViewManager(findViewById(R.id.ROOT));
     }
 

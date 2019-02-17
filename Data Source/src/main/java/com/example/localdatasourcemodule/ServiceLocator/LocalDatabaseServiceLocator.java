@@ -4,8 +4,6 @@ import com.example.localdatasourcemodule.LocalDatabase.Services.InvoiceHeaderSer
 import com.example.localdatasourcemodule.LocalDatabase.Services.InvoiceItemService;
 import com.example.localdatasourcemodule.Service;
 
-import java.lang.annotation.Documented;
-
 public class LocalDatabaseServiceLocator {
 
     @Service

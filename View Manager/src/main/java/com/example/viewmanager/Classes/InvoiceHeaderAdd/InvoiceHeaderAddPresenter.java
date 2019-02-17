@@ -1,6 +1,6 @@
 package com.example.viewmanager.Classes.InvoiceHeaderAdd;
 
-import com.example.localdatasourcemodule.DataSource;
+import com.example.localdatasourcemodule.DataService;
 import com.example.localdatasourcemodule.LocalDatabase.Entity.InvoiceHeader;
 import com.example.viewmanager.Managers.ViewNavigatorManager;
 
@@ -10,11 +10,11 @@ class InvoiceHeaderAddPresenter {
 
     void insertHeaderToLocalDatabase(InvoiceHeader invoiceHeader) {
 
-        DataSource.getInstance()
+        DataService.getInstance()
                 .getDatabaseLocalDatabaseServiceLocator()
                 .setCurrentHeaderCVC(invoiceHeader.toString());
 
-        DataSource.getInstance()
+        DataService.getInstance()
                 .getDatabaseLocalDatabaseServiceLocator()
                 .getInvoiceHeaderService()
                 .insertInvoiceHeader(invoiceHeader);
