@@ -2,21 +2,50 @@ package com.example.viewmanager.Classes.InvoiceItemAdd;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 
+import com.example.localdatasourcemodule.LocalDatabase.Entity.InvoiceItem;
+import com.example.utilitiesmodule.ViewUtility;
 import com.example.viewmanager.R;
 
- class ItemAddDialogBox extends Dialog {
-    Spinner spinner;
-    ArrayAdapter<String> dataAdapter;
+class ItemAddDialogBox extends Dialog implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+    private Spinner spinner;
+    private InvoiceAddDialog invoiceAddDialog;
+    private InvoiceItem invoiceItem = new InvoiceItem();
 
-        ItemAddDialogBox(@NonNull Context context) {
+    ItemAddDialogBox(@NonNull Context context) {
         super(context);
         setContentView(R.layout.invoice_item_add_dialog);
         spinner = findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(this);
+        findViewById(R.id.add).setOnClickListener(this);
+        show();
+
+    }
+
+    void setInvoiceAddDialog(InvoiceAddDialog invoiceAddDialog) {
+        this.invoiceAddDialog = invoiceAddDialog;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (!ViewUtility.getEmptyFields(findViewById(R.id.root), invoiceItem)) {
+            ViewUtility.View2ToData(findViewById(R.id.root), invoiceItem);
+            invoiceAddDialog.onAddButtonClicked(invoiceItem);
+        }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        invoiceItem.material = (String) spinner.getItemAtPosition(position);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }

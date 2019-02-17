@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -21,8 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:entries="@array/material_item"
-            android:layout_toEndOf="@id/material" />
+            android:layout_toEndOf="@id/material"
+            android:entries="@array/material_item" />
     </RelativeLayout>
 
 
@@ -36,8 +37,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/offerd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:hint="تقديم BUS"
+            android:tag="offered"
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="تقديم متعهد"
+            android:tag="offeredSubContractor"
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,6 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="تنفيذ"
+            android:tag="execution"
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,6 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="مرتجع"
+            android:tag="returned"
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,15 +99,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="ملاحظات"
+            android:tag="notes"
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp">
 
         <Button
             android:id="@+id/add"
