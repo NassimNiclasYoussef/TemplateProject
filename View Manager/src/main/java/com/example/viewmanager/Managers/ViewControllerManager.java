@@ -64,7 +64,7 @@ public class ViewControllerManager {
 
     public void goTo(int index) {
         viewsHistory.add(index);
-        navigator.Switch(index);
+        navigator.Switch(index); 
     }
 
     public void goBack() {
