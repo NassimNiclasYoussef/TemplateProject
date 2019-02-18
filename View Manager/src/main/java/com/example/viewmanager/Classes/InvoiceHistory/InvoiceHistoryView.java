@@ -7,10 +7,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.lifecyclemanagermodule.LifeCycleManager;
-import com.example.viewcomponentsmodule.InvoiceHeaderItem;
-import com.example.viewmanager.Classes.InvoiceItemAdd.InvoiceItemAddView;
-import com.example.viewmanager.Managers.ViewConstants;
-import com.example.viewmanager.Managers.ViewNavigatorManager;
+import com.example.viewmanager.Managers.ViewControllerManager;
 import com.example.viewmanager.R;
 
 import static com.example.viewmanager.Managers.ViewConstants.*;
@@ -18,8 +15,6 @@ import static com.example.viewmanager.Managers.ViewConstants.*;
 public class InvoiceHistoryView extends RelativeLayout implements View.OnClickListener {
     protected LinearLayout slidingContainer;
     protected TextView indicator;
-    private InvoiceHistoryPresenter invoiceHeaderPresenter;
-    private boolean isSet = false;
 
     public InvoiceHistoryView(Context context) {
         super(context);
@@ -27,19 +22,22 @@ public class InvoiceHistoryView extends RelativeLayout implements View.OnClickLi
         slidingContainer = findViewById(R.id.SLIDING_CONTENT);
         indicator = findViewById(R.id.INDICATOR);
         findViewById(R.id.ADD_HEADER).setOnClickListener(this);
-        invoiceHeaderPresenter = new InvoiceHistoryPresenter();
 
     }
 
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        invoiceHeaderPresenter.setHeadersItem(this);
-        LifeCycleManager.getInstance().setLifeCycleInterface(null);
+        LifeCycleManager.getInstance()
+                .setLifeCycleInterface(null);
+        ViewControllerManager.getInstance()
+                .getPresenterLocator()
+                .getInvoiceHistoryPresenter()
+                .setHeadersItem(InvoiceHistoryView.this);
     }
 
     @Override
     public void onClick(View v) {
-        ViewNavigatorManager.getInstance().goTo(INVOICE_HEADER_ADD);
+        ViewControllerManager.getInstance().goTo(INVOICE_HEADER_ADD);
     }
 }

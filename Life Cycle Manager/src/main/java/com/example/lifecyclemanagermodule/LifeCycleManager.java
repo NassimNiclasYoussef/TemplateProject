@@ -9,7 +9,7 @@ public class LifeCycleManager<T extends LifeCycleInterface> {
     private static final LifeCycleManager ourInstance = new LifeCycleManager();
     private static final String MAIN_INTERFACE_NAME = "LifeCycleInterface";
     private HashMap<String, Method> methods = new HashMap<>(0);
-    private T lifeCycle;
+    private LifeCycleInterface lifeCycle;
 
     public static LifeCycleManager getInstance() {
         return ourInstance;
@@ -18,7 +18,7 @@ public class LifeCycleManager<T extends LifeCycleInterface> {
     private LifeCycleManager() {
     }
 
-    public void setLifeCycleInterface(T target) {
+    public void setLifeCycleInterface(LifeCycleInterface target) {
         this.methods.clear();
         if (target == null)
             return;

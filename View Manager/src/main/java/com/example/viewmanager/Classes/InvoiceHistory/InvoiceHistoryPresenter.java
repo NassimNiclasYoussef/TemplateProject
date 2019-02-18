@@ -10,10 +10,13 @@ import java.util.AbstractList;
 
 import static android.view.View.GONE;
 
-class InvoiceHistoryPresenter {
+public class InvoiceHistoryPresenter {
     AbstractList<InvoiceHeader> headers;
 
-    void setHeadersItem(InvoiceHistoryView invoiceHistoryView) {
+    private InvoiceHistoryPresenter() {
+    }
+
+    public void setHeadersItem(InvoiceHistoryView invoiceHistoryView) {
         headers = DataService.getInstance()
                 .getDatabaseLocalDatabaseServiceLocator()
                 .getInvoiceHeaderService()

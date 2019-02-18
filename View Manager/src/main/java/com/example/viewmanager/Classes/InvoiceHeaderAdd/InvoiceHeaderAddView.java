@@ -7,11 +7,10 @@ import android.widget.ScrollView;
 import com.example.lifecyclemanagermodule.LifeCycleManager;
 import com.example.localdatasourcemodule.LocalDatabase.Entity.InvoiceHeader;
 import com.example.utilitiesmodule.ViewUtility;
-import com.example.viewmanager.Managers.ViewNavigatorManager;
+import com.example.viewmanager.Managers.ViewControllerManager;
 import com.example.viewmanager.R;
 
 public class InvoiceHeaderAddView extends ScrollView implements InvoiceHeaderAdd, View.OnClickListener {
-    InvoiceHeaderAddPresenter invoiceHeaderAddPresenter = new InvoiceHeaderAddPresenter();
 
     public InvoiceHeaderAddView(Context context) {
         super(context);
@@ -28,7 +27,7 @@ public class InvoiceHeaderAddView extends ScrollView implements InvoiceHeaderAdd
 
     @Override
     public void onBackPressed() {
-        ViewNavigatorManager.getInstance().goBack();
+        ViewControllerManager.getInstance().goBack();
     }
 
     @Override
@@ -37,9 +36,12 @@ public class InvoiceHeaderAddView extends ScrollView implements InvoiceHeaderAdd
             InvoiceHeader invoiceHeader = new InvoiceHeader();
             if (!ViewUtility.getEmptyFields(this, invoiceHeader)) {
                 ViewUtility.View2ToData(this, invoiceHeader);
-                invoiceHeaderAddPresenter.insertHeaderToLocalDatabase(invoiceHeader);
+                ViewControllerManager.getInstance()
+                        .getPresenterLocator()
+                        .getInvoiceHeaderAddPresenter()
+                        .insertHeaderToLocalDatabase(invoiceHeader);
             }
         } else
-            ViewNavigatorManager.getInstance().goBack();
+            ViewControllerManager.getInstance().goBack();
     }
 }
