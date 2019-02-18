@@ -9,14 +9,14 @@ public final class ViewManager extends ViewMapper implements ViewNavigator {
         super(container.getContext());
         this.container = container;
         this.container.removeAllViews();
+        ViewControllerManager.getInstance().setNavigator(this);
+        ViewControllerManager.getInstance().initPresenterLocator();
         container.addView(getViewByIndex(0));
-        ViewNavigatorManager.getInstance().setNavigator(this);
     }
-
 
     @Override
     public void Switch(int index) {
-            container.removeViewAt(0);
-            container.addView(getViewByIndex(index));
+        container.removeViewAt(0);
+        container.addView(getViewByIndex(index));
     }
 }

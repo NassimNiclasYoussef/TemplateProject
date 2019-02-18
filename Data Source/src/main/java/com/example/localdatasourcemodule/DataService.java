@@ -52,7 +52,6 @@ public class DataService {
                     e.printStackTrace();
                 }
             }
-
         }
     }
 

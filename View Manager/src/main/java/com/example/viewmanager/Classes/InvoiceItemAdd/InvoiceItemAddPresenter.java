@@ -7,10 +7,13 @@ import android.widget.Toast;
 import com.example.localdatasourcemodule.DataService;
 import com.example.localdatasourcemodule.LocalDatabase.Entity.InvoiceItem;
 
-class InvoiceItemAddPresenter {
+public class InvoiceItemAddPresenter {
     private String cvc;
 
-    void insertItemInDatabase(InvoiceItem invoiceItem) {
+    private InvoiceItemAddPresenter() {
+    }
+
+     void insertItemInDatabase(InvoiceItem invoiceItem) {
         cvc = DataService.getInstance()
                 .getDatabaseLocalDatabaseServiceLocator()
                 .getCurrentHeaderCVC()
@@ -21,7 +24,7 @@ class InvoiceItemAddPresenter {
         Log.e("cvc", cvc);
     }
 
-    void sendEmail(Context context) {
+     void sendEmail(Context context) {
         Toast.makeText(context, "Sending" +
                 "", Toast.LENGTH_SHORT).show();
         DataService.getInstance()
